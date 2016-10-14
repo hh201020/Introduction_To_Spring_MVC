@@ -13,6 +13,8 @@
 	
 	<mvc:resources location="pdfs" mapping="/pdfs/**"/>  <!-- http://localhost:8070/FitnessTracker/pdfs/helloworld.pdf will get this pdf file, only with a mapping in web.xml -->
 
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages" ></bean>
+
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
 <!-- 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>

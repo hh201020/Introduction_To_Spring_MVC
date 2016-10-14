@@ -15,7 +15,7 @@
 	<form:form commandName="exercise">
 		<table>
 			<tr>
-				<td>Minutes Exercise For Today:</td>
+				<td><spring:message code="goal.text" /></td>
 				<td><form:input path="minutes" /></td>
 			</tr>
 			<tr>
