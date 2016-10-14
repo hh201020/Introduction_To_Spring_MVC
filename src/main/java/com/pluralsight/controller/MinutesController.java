@@ -13,8 +13,15 @@ public class MinutesController {
 	public String addMinutes(@ModelAttribute ("exercise") Exercise exercise){
 		System.out.println("exercise: " + exercise.getMinutes());
 
-		return "addMinutes";  //the returning path will be /WEB-INF/jsp/addMinutes.jsp
-//		return "forward:addMoreMinutes.html";  //continue old request, keep all former data	
-//		return "redirect:addMoreMinutes.html"; //close the old request, lost all former data
+//		return "addMinutes";  //the returning path will be /WEB-INF/jsp/addMinutes.jsp
+//		return "forward:addMoreMinutes.html";  // it is *.html, it doesn't work if not this .html, and 
+											   // continue old request, keep all former data	
+		return "redirect:addMoreMinutes.html"; //close the old request, lost all former data
 	}	
+	
+	@RequestMapping(value = "/addMoreMinutes")
+	public String addMoreMinutes(@ModelAttribute ("exercise") Exercise exercise){
+		System.out.println("exercising: " + exercise.getMinutes());
+		return "addMinutes";
+	}
 }
