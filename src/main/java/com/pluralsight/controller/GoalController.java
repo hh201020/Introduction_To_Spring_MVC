@@ -24,13 +24,9 @@ public class GoalController {
 	}
 	
 	@RequestMapping(value="addGoal", method=RequestMethod.POST)
-	public String updateGoal(@ModelAttribute("goal") Goal goal, BindingResult result) {
-		System.out.println("result has errors: " + result.hasErrors());
+	public String updateGoal(@ModelAttribute("goal") Goal goal) {
 		System.out.println("Minutes updated: " + goal.getMinutes());
-		
-		if(result.hasErrors()){
-			return "addGoal";
-		}
+
 		return "redirect:addMinutes.html";
 	}
 }
