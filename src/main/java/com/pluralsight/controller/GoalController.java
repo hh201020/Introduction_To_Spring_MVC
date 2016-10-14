@@ -1,5 +1,7 @@
 package com.pluralsight.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,9 +26,13 @@ public class GoalController {
 	}
 	
 	@RequestMapping(value="addGoal", method=RequestMethod.POST)
-	public String updateGoal(@ModelAttribute("goal") Goal goal) {
+	public String updateGoal(@Valid @ModelAttribute("goal") Goal goal, BindingResult result) { // result is from @Valid
+		System.out.println("result has errors: " + result.hasErrors());
 		System.out.println("Minutes updated: " + goal.getMinutes());
-
+		
+		if(result.hasErrors()){
+			return "addGoal";
+		}
 		return "redirect:addMinutes.html";
 	}
 }
