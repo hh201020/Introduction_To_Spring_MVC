@@ -14,12 +14,23 @@ import com.pluralsight.model.Goal;
 @SessionAttributes("goal")
 public class GoalController {
 	
-	@RequestMapping(value="addGoal")	// Only get works
+	@RequestMapping(value="addGoal", method=RequestMethod.GET)	// Only get works
 	public String addGoal(Model model) {	// Pass in the backend model directly
 		Goal goal = new Goal();
+		goal.setMinutes(10);
 		model.addAttribute("goal", goal );
 		
 		return "addGoal";
 	}
 	
+	@RequestMapping(value="addGoal", method=RequestMethod.POST)
+	public String updateGoal(@ModelAttribute("goal") Goal goal, BindingResult result) {
+		System.out.println("result has errors: " + result.hasErrors());
+		System.out.println("Minutes updated: " + goal.getMinutes());
+		
+		if(result.hasErrors()){
+			return "addGoal";
+		}
+		return "redirect:addMinutes.html";
+	}
 }
