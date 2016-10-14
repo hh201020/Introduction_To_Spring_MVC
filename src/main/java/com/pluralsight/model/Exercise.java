@@ -1,7 +1,13 @@
 package com.pluralsight.model;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
+
 public class Exercise {
+	
 	private int minutes;
+	private String activity;
 	
 	public int getMinutes() {
 		return minutes;
@@ -11,4 +17,11 @@ public class Exercise {
 		this.minutes = minutes;
 	}
 
+	public String getActivity() {
+		return activity;
+	}
+
+	public void setActivity(String activity) {
+		this.activity = activity;
+	}
 }

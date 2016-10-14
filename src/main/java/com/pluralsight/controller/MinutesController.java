@@ -18,6 +18,7 @@ public class MinutesController {
 	@RequestMapping(value = "/addMinutes")  // the actual url provided should be: http://localhost:8070/FitnessTracker/addMinutes.html
 	public String addMinutes(@ModelAttribute ("exercise") Exercise exercise){
 		System.out.println("exercise: " + exercise.getMinutes());
+		System.out.println("exercise activity: " + exercise.getActivity());
 
 		return "addMinutes";  //the returning path will be /WEB-INF/jsp/addMinutes.jsp
 //		return "forward:addMoreMinutes.html";  // it is *.html, it doesn't work if not this .html, and 
@@ -40,11 +41,11 @@ public class MinutesController {
 		activities.add(run);
 		
 		Activity bike = new Activity();
-		run.setDesc("bike");
+		bike.setDesc("bike");
 		activities.add(bike);
 		
 		Activity swim = new Activity();
-		run.setDesc("swim");
+		swim.setDesc("swim");
 		activities.add(swim);
 		
 		return activities;
