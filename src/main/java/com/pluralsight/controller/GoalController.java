@@ -2,6 +2,7 @@ package com.pluralsight.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,16 @@ public class GoalController {
 	@Autowired
 	private GoalService goalService;
 	
-	@RequestMapping(value="addGoal", method=RequestMethod.GET)	// Only get works
-	public String addGoal(Model model) {	// Pass in the backend model directly
-		Goal goal = new Goal();
-		goal.setMinutes(10);
+	@RequestMapping(value="addGoal", method=RequestMethod.GET)
+	public String addGoal(Model model, HttpSession session) {
+//		Goal goal = new Goal();
+		
+		Goal goal = (Goal)session.getAttribute("goal");
+		
+		if(goal == null){
+			goal = new Goal();
+			goal.setMinutes(10);
+		}
 		model.addAttribute("goal", goal );
 		
 		return "addGoal";
