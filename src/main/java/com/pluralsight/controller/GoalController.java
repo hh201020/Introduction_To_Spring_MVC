@@ -40,6 +40,6 @@ public class GoalController {
 		} else {
 			goalService.save(goal);
 		}
-		return "redirect:addMinutes.html";
+		return "redirect:index.jsp";
 	}
 }
