@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html lang="en">
   
@@ -43,17 +46,20 @@
       <div class="hero-unit">
         <div>
           <h1>
-            Welcome to Fitness Tracker!
+            Welcome to Fitness Tracker! <sec:authentication property="name" />
           </h1>
           <p>
             To get started, we need to enter a goal for what we want to exercise for
             today.
           </p>
         </div>
-        <a class="btn btn-primary" href="addGoal.html">
-          Add Goal ?
-        </a>
         
+        <sec:authorize access="hasRole('ROLE_ADMIN')"> <!-- // Note: working version of spring-security-taglibs is 4.0.2.RELEASE when using spring-security-context:4.0.3.RELEASE etc. -->
+  	      <a class="btn btn-primary" href="addGoal.html">
+  	        Add Goal ?
+  	      </a>
+        </sec:authorize>
+       
         <a class="btn btn-primary" href="addMinutes.html">
           Add Exercise Minutes ?
         </a>
