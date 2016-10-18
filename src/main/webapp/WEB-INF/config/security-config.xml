@@ -11,14 +11,6 @@
 	<http auto-config="true">
 		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
 	</http>
-				
-<!-- 	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="bryan" password="secret" authorities="ROLE_USER"/>  // original memory authentication
-			</user-service>
-		</authentication-provider>
-	</authentication-manager> -->
 
 	<authentication-manager>
 		<authentication-provider>
@@ -40,5 +32,12 @@
 		<beans:property name="username" value="dbuser"></beans:property>
 		<beans:property name="password" value="dbpassword"></beans:property>
 	</beans:bean> -->
-
+				
+<!-- 	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="bryan" password="secret" authorities="ROLE_USER"/>  // original memory authentication
+			</user-service>
+		</authentication-provider>
+	</authentication-manager> -->
 </beans:beans>
