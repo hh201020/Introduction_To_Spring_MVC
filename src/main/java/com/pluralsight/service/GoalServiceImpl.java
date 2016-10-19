@@ -3,6 +3,7 @@ package com.pluralsight.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ public class GoalServiceImpl implements GoalService {
 	private GoalRepository goalRepository;
 
 	@Override
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@Transactional
 	public Goal save(Goal goal) {
 		return goalRepository.save(goal);
