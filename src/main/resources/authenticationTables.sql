@@ -27,3 +27,6 @@ update users set password="5ebe2294ecd0e0f08eab7690d2a6ee69" where username="Bry
 alter table users modify password varchar(60);
 
 update users set password="$2a$10$5XbiJjvz95XL6Ed5uP71/eCwNT6RkhqhvUqEUdDJKt4QxWE345fsO" where username="Bryan"
+
+insert into users (username, password, enabled) values ("c", "s", true)
+insert into authorities (username, authority) values ("c", "ROLE_BAD")

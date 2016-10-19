@@ -35,4 +35,11 @@ public class LoginController {
 		model.addAttribute("error", "true");
 		return "login";
 	}
+
+	@RequestMapping(value="/403", method=RequestMethod.GET)
+	public String error403(ModelMap model){
+		
+		System.out.println("403");
+		return "403";
+	}
 }
